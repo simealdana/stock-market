@@ -18,7 +18,7 @@ npm install -g expo-cli
 
 2. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/simealdana/stock-market
 ```
 
 3. Install dependencies:
