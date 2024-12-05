@@ -3,7 +3,7 @@ import { StockListItem } from "../components/ui/StockListItem";
 import { useFavoriteStocks } from "../hooks/useFavoriteStocks";
 
 export default function FavoritesScreen() {
-  const { favorites } = useFavoriteStocks();
+  const { favorites, removeFromFavorites } = useFavoriteStocks();
 
   if (favorites.length === 0) {
     return (
@@ -20,7 +20,9 @@ export default function FavoritesScreen() {
     <View style={styles.container}>
       <FlatList
         data={favorites}
-        renderItem={({ item }) => <StockListItem stock={item} />}
+        renderItem={({ item }) => (
+          <StockListItem stock={item} onPress={removeFromFavorites} />
+        )}
         keyExtractor={(item, index) => `${item.symbol}_${index}`}
         contentContainerStyle={styles.listContent}
       />

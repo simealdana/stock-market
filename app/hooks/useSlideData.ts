@@ -32,3 +32,5 @@ export const useSlideData = () => {
     error,
   };
 };
+
+export default useSlideData;

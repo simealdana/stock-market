@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { ROUTES } from "@/constants/Routes";
+import { ROUTES } from "@/app/constants/Routes";
 
 export const EmptyState = () => {
   return (
@@ -88,3 +88,5 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
 });
+
+export default EmptyState;

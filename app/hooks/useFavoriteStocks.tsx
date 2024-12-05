@@ -19,3 +19,5 @@ export const useFavoriteStocks = () => {
       favorites.some((stock) => stock.symbol === symbol),
   };
 };
+
+export default useFavoriteStocks;

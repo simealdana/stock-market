@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useFavorites } from "../../context/FavoritesContext";
 
 interface Stock {
   symbol: string;
@@ -12,11 +11,10 @@ interface Stock {
 
 interface Props {
   stock: Stock;
-  hideRemoveButton?: boolean;
+  onPress?: (symbol: string) => void;
 }
 
-export const StockListItem: React.FC<Props> = ({ stock, hideRemoveButton }) => {
-  const { removeFavorite } = useFavorites();
+export const StockListItem: React.FC<Props> = ({ stock, onPress }) => {
   const isPositiveChange = stock.daily_change > 0;
 
   return (
@@ -41,10 +39,10 @@ export const StockListItem: React.FC<Props> = ({ stock, hideRemoveButton }) => {
           </Text>
         </View>
       </View>
-      {!hideRemoveButton && (
+      {onPress && (
         <Pressable
           style={styles.removeButton}
-          onPress={() => removeFavorite(stock.symbol)}
+          onPress={() => onPress(stock.symbol)}
         >
           <MaterialIcons
             name="remove-circle-outline"
@@ -110,3 +108,5 @@ const styles = StyleSheet.create({
     padding: 4,
   },
 });
+
+export default StockListItem;

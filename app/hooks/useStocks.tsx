@@ -53,3 +53,5 @@ export const useStocks = (): UseStocksReturn => {
 };
 
 export type { Stock };
+
+export default useStocks;

@@ -10,3 +10,9 @@ export const formatChange = (change: number): string => {
 export const getChangeColor = (change: number): string => {
   return change > 0 ? "#4CAF50" : "#FF4C4C";
 };
+
+export default {
+  formatPrice,
+  formatChange,
+  getChangeColor,
+};

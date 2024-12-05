@@ -37,6 +37,12 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   };
 
   const addFavorite = async (stock: Stock) => {
+    const existing = favorites.find((s) => s.symbol === stock.symbol);
+
+    if (existing) {
+      return;
+    }
+
     const newFavorites = [...favorites, stock];
     setFavorites(newFavorites);
     try {
@@ -72,3 +78,5 @@ export function useFavorites() {
   }
   return context;
 }
+
+export default FavoritesContext;
